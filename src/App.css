@@ -1,7 +1,7 @@
-
+/* Global Styles */
 body {
-  background-color: #302f2f; /* Dark background similar to PDF */
-  color: #ffffff; /* White text for contrast */
+  background-color: #121212;
+  color: #ffffff;
   margin: 0;
   padding: 0;
   font-family: 'Arial', sans-serif;
@@ -12,8 +12,7 @@ body {
   min-height: 100vh;
 }
 
-
-/* Navbar Styles - App.css */
+/* Navbar Styles */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -26,16 +25,15 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Logo Section */
 .logo h1 {
   font-size: 1.8rem;
   margin: 0;
 }
 
-/* Navigation Links */
 .nav-links {
   display: flex;
-  gap: 2rem; /* Space between menu items */
+  align-items: center;
+  gap: 2rem;
 }
 
 .nav-links a {
@@ -50,7 +48,6 @@ body {
   border-radius: 5px;
 }
 
-/* Search Section */
 .search-form {
   display: flex;
   align-items: center;
@@ -79,37 +76,59 @@ body {
   background-color: #e04a4a;
 }
 
-
-form {
-  display: flex;
-}
-
-input[type="text"] {
-  padding: 0.5rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  width: 200px;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  border: none;
-  background-color: #ff5c5c; /* Button color */
-  color: #ffffff;
-  font-size: 1rem;
-  border-radius: 5px;
+/* Burger Menu */
+.burger-menu {
+  display: none;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #e04a4a;
+.burger-menu .line {
+  width: 25px;
+  height: 3px;
+  background-color: #ffffff;
+  margin: 5px;
+  transition: all 0.3s ease;
 }
 
+.burger-menu .open {
+  transform: rotate(45deg);
+}
 
+.nav-active {
+  display: block;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #1e1e1e;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  .nav-links.nav-active {
+    display: flex;
+  }
+
+  .search-form {
+    margin-top: 1rem;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+}
+
+/* Movie List Styles */
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1rem;
   padding: 1rem;
 }
@@ -128,6 +147,7 @@ button:hover {
   margin: 0 0.5rem;
 }
 
+/* Movie Detail Page */
 .cast-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -142,4 +162,15 @@ button:hover {
 
 .cast-card p {
   margin: 0.5rem 0;
+}
+
+/* Responsive Cast Section */
+@media (max-width: 768px) {
+  .cast-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .cast-card img {
+    width: 100%;
+  }
 }
